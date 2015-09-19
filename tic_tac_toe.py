@@ -21,9 +21,14 @@ def print_intro():
   print(': ')
 
 def record_moves():
-  move = ' '
-  while move not in range(1,10):
+  move = 10
+  while move not in range(1,10) or is_square_occupied(move):
     move = eval(input('Enter valid move: '))
   squares[move] = 'X'
+
+def is_square_occupied(num):
+  if squares[num] == ' ':
+    return squares[num] != ' '
+
 print(record_moves())
 create_board(squares)
